@@ -29,8 +29,10 @@ if (process.env.NODE_ENV === 'production') {
       path.resolve(__dirname, '../', 'frontend', 'dist', 'index.html')
     )
   )
-} else {
+} else if (process.env.NODE_ENV === 'development') {
   app.get('/', (req, res) => res.send('Please set to production'))
+} else {
+  app.get('/', (req, res) => res.send('what are you doing'))
 }
 
 app.listen(port, () => console.log(`server started at ${port}`))
