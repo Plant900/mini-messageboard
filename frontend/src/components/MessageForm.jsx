@@ -14,6 +14,7 @@ export const MessageForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
+    console.log('form submitted')
 
     dispatch(createMessage(formValues))
     setFormValues({ user: '', text: '' })
