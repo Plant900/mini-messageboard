@@ -1,4 +1,5 @@
 import axios from 'axios'
+const dotenv = require('dotenv').config()
 
 const API_URL = process.env.API_URL
 
