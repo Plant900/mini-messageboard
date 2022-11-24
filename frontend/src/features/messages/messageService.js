@@ -1,7 +1,6 @@
 import axios from 'axios'
-const dotenv = require('dotenv').config()
 
-const API_URL = process.env.API_URL
+const API_URL = 'https://mini-messageboard.onrender.com/api/messages'
 
 const getMessages = async () => {
   const response = await axios.get(API_URL)
