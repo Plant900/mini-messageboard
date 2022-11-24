@@ -17,6 +17,8 @@ const createMessage = asyncHandler(async (req, res) => {
     throw new Error('Fill in all fields')
   }
 
+  console.log('creating message')
+
   const message = await Message.create({
     user: req.body.user,
     text: req.body.text,
