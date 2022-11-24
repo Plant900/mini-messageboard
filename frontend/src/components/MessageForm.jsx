@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createMessage } from '../features/messages/messageSlice'
 
+import { Button, Input, Stack, Textarea } from '@chakra-ui/react'
+
 export const MessageForm = () => {
   const [formValues, setFormValues] = useState({
     user: '',
@@ -18,28 +20,35 @@ export const MessageForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <label htmlFor="user">User</label>
-        <input
+    <form onSubmit={onSubmit}>
+      <Stack width={'500px'}>
+        <Input
+          placeholder="User"
+          variant="filled"
+          size="xs"
           type="text"
           name="user"
           id="user"
           onChange={(e) =>
             setFormValues({ ...formValues, user: e.target.value })
           }
-        ></input>
-        <label htmlFor="text">Text</label>
-        <input
+        ></Input>
+
+        <Textarea
+          placeholder="Message"
+          variant="filled"
+          size="sm"
           type="text"
           name="text"
           id="text"
           onChange={(e) =>
             setFormValues({ ...formValues, text: e.target.value })
           }
-        ></input>
-        <button type="submit">Post message</button>
-      </form>
-    </div>
+        ></Textarea>
+        <Button size={'sm'} variant={'solid'} colorScheme="gray" type="submit">
+          Post message
+        </Button>
+      </Stack>
+    </form>
   )
 }
