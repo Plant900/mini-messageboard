@@ -12,6 +12,7 @@ const getMessages = async () => {
 
 const createMessage = async (messageData) => {
   const response = await axios.post(API_URL, messageData)
+  console.log('creating message')
 
   return response.data
 }
